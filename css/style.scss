@@ -1,0 +1,690 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s linear;
+}
+
+$blue: #2597f4;
+$white: #fff;
+$black: #334;
+$light-color: #777;
+$light-bg: #f5f5f5;
+$border: 0.2rem solid $black;
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+
+@mixin grid($val) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+  gap: 2rem;
+}
+
+@mixin titleText($titleSize) {
+  font-size: $titleSize;
+  text-transform: capitalize;
+  color: $black;
+}
+
+@mixin graphText($graphsize) {
+  font-size: $graphsize;
+  line-height: 2;
+  color: $light-color;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar {
+    background: $white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $blue;
+    border-radius: 5rem;
+  }
+}
+
+.heading {
+  @include titleText(4rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  span {
+    color: $blue;
+  }
+}
+
+section {
+  padding: 5rem 10%;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  background: $white;
+  @include titleText(1.7rem);
+  border: $border;
+
+  &:hover {
+    background: $blue;
+    color: $white;
+    border-color: $blue;
+  }
+}
+// ===========Header section==========
+
+.header {
+  .contact-info {
+    padding: 2rem 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $blue;
+  }
+
+  P {
+    font-size: 1.5rem;
+    color: $white;
+
+    i {
+      padding-right: 0.5rem;
+      color: yellow;
+    }
+  }
+
+  .navbar {
+    padding: 2rem 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $white;
+    border-bottom: $border;
+    position: relative;
+    z-index: 1000;
+
+    &.active {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      border-bottom: none;
+      box-shadow: $box-shadow;
+    }
+
+    .logo {
+      @include titleText(2.5rem);
+      font-weight: bolder;
+
+      i {
+        color: $blue;
+      }
+    }
+
+    .links {
+      a {
+        margin-left: 2rem;
+        @include titleText(2rem);
+
+        &:hover {
+          color: $blue;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    #menu-btn {
+      font-size: 3rem;
+      cursor: pointer;
+      color: $blue;
+      display: none;
+    }
+  }
+}
+
+// ========Home Section Starts========
+
+.home {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+
+  .image {
+    flex: 1 1 40rem;
+
+    img {
+      width: 100%;
+    }
+  }
+  .content {
+    flex: 1 1 40rem;
+
+    h3 {
+      @include titleText(4.5rem);
+    }
+    p {
+      @include graphText(1.5rem);
+      padding: 1rem 0;
+    }
+  }
+}
+
+// =======fun fact section starts=======
+
+.fun-fact {
+  @include grid(25rem);
+  background: $light-bg;
+  gap: 3.5rem;
+
+  .box {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    img {
+      height: 10rem;
+    }
+    h3 {
+      @include titleText(4rem);
+    }
+    p {
+      @include graphText(1.5rem);
+      padding-top: 0.5rem;
+    }
+  }
+}
+
+// ========about section starts======
+
+.about {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  gap: 3rem;
+
+  .image {
+    flex: 1 1 42rem;
+
+    img {
+      width: 100%;
+    }
+  }
+  .content {
+    flex: 1 1 42rem;
+
+    h3 {
+      @include titleText(3rem);
+      padding-bottom: 0.5rem;
+    }
+    p {
+      @include graphText(1.5rem);
+      padding: 1rem 0;
+    }
+  }
+}
+
+// ===========Services section starts======
+
+.services {
+  background: $light-bg;
+
+  .box-container {
+    @include grid(30rem);
+    .box {
+      padding: 3rem 2rem;
+      border: $border;
+      background: $white;
+      text-align: center;
+      box-shadow: $box-shadow;
+
+      &:hover {
+        background: $black;
+
+        h3,
+        p {
+          color: $white;
+        }
+      }
+      img {
+        width: 7rem;
+        margin-bottom: 0.5rem;
+      }
+      h3 {
+        @include titleText(2rem);
+        padding: 1rem 0;
+      }
+      p {
+        @include graphText(1.5rem);
+      }
+    }
+  }
+}
+
+// ======gallery seciton starts=====
+
+.gallery {
+  .gallery-container {
+    @include grid(30rem);
+
+    .box {
+      height: 25rem;
+      overflow: hidden;
+
+      &:hover img {
+        transform: scale(1.1);
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// =====Facilities section starts=====
+
+.facilities {
+  background: $light-bg;
+
+  .box-container {
+    @include grid(30rem);
+
+    .box {
+      padding: 3rem;
+      border: $border;
+      background: $white;
+      text-align: center;
+      box-shadow: $box-shadow;
+      cursor: pointer;
+
+      &:hover {
+        background: $black;
+
+        h3,
+        p {
+          color: $white;
+        }
+      }
+
+      img {
+        height: 10rem;
+      }
+      h3 {
+        @include titleText(2rem);
+        padding: 1rem 0;
+      }
+      p {
+        @include graphText(1.4rem);
+      }
+    }
+  }
+}
+
+// =========team section starts=====
+
+.team {
+  .box-container {
+    @include grid(25rem);
+    align-items: flex-start;
+
+    .box {
+      overflow: hidden;
+      text-align: center;
+
+      &:hover {
+        .content {
+          margin-bottom: 0;
+        }
+      }
+      img {
+        width: 100%;
+      }
+
+      .content {
+        padding: 2rem;
+        margin-bottom: -7rem;
+
+        h3 {
+          @include titleText(2rem);
+        }
+        p {
+          @include graphText(1.5rem);
+          padding: 0.5rem;
+        }
+
+        .share {
+          margin-top: 1.5rem;
+          a {
+            height: 4.5rem;
+            width: 4.5rem;
+            line-height: 4.5rem;
+            font-size: 1.7rem;
+            margin: 0 0.3rem;
+            background: $black;
+            color: $white;
+
+            &:hover {
+              background: $blue;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========Review section starts======
+
+.review {
+  background: $light-bg;
+  .box-container {
+    @include grid(30rem);
+
+    .box {
+      padding: 3rem;
+      border: $border;
+      background: $white;
+      text-align: center;
+      box-shadow: $box-shadow;
+
+      &:hover {
+        background: $black;
+
+        .text p,
+        .user h3 {
+          color: $white;
+        }
+      }
+
+      .star {
+        i {
+          color: $blue;
+          font-size: 1.7rem;
+        }
+      }
+
+      .text {
+        position: relative;
+        z-index: 0;
+        padding: 1.5rem 0;
+
+        i {
+          font-size: 6rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: -1;
+          color: $blue;
+          opacity: 0.3;
+        }
+
+        p {
+          @include graphText(1.5rem);
+        }
+      }
+      .user {
+        img {
+          height: 7rem;
+          width: 7rem;
+          border-radius: 50%;
+        }
+        h3 {
+          @include titleText(1.7rem);
+        }
+      }
+    }
+  }
+}
+
+.contact {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+
+    .map {
+      flex: 1 1 42rem;
+      width: 100%;
+    }
+
+    form {
+      flex: 1 1 42rem;
+      padding: 2rem;
+      border: $border;
+
+      h3 {
+        @include titleText(2.5rem);
+        padding-bottom: 1rem;
+      }
+      .inputBox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        input {
+          width: 49%;
+        }
+      }
+      .inputBox input,
+      textarea {
+        padding: 1.2rem 1.4rem;
+        font-size: 1.6rem;
+        color: $light-color;
+        margin: 0.7rem 0;
+        border: $border;
+
+        &:focus {
+          background: $black;
+          color: $white;
+
+          &::placeholder {
+            color: $white;
+          }
+        }
+      }
+
+      textarea {
+        width: 100%;
+        height: 15rem;
+        resize: none;
+      }
+    }
+  }
+}
+
+// =========footer section starts========
+
+.footer {
+  background: $light-bg;
+
+  .box-container {
+    @include grid(25rem);
+
+    .box {
+      h3 {
+        @include titleText(2.2rem);
+        padding: 1rem 0;
+      }
+      .links {
+        display: block;
+        padding: 0.5rem 0;
+        @include graphText(1.5rem);
+
+        i {
+          padding-right: 0.5rem;
+          color: $blue;
+        }
+
+        &:hover {
+          color: $blue;
+
+          i {
+            padding-right: 2rem;
+          }
+        }
+      }
+
+      p {
+        @include graphText(1.5rem);
+
+        span {
+          color: $blue;
+        }
+      }
+
+      .email {
+        width: 100%;
+        border: $border;
+        padding: 1.6rem 1.4rem;
+        font-size: 1.6rem;
+        color: $white;
+        margin: 1rem 0;
+
+        &:focus {
+          background: $black;
+
+          &::placeholder {
+            color: $white;
+          }
+        }
+      }
+      .share {
+        margin-top: 1rem;
+
+        a {
+          height: 4.5rem;
+          width: 4.5rem;
+          line-height: 4.5rem;
+          font-size: 1.7rem;
+          background: $black;
+          color: $white;
+          margin-right: 0.3rem;
+          text-align: center;
+
+          &:hover {
+            background: $blue;
+          }
+        }
+      }
+    }
+  }
+
+  .credit {
+    @include titleText(2rem);
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: $border;
+    text-align: center;
+
+    span {
+      color: $blue;
+    }
+  }
+}
+
+// ===========Media queries=========
+
+@media (max-width: 1200px) {
+  .header {
+    .contact-info {
+      padding: 2rem 5%;
+    }
+    .navbar {
+      padding: 2rem 5%;
+    }
+  }
+  section {
+    padding: 3rem 5%;
+  }
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  .header {
+    .contact-info {
+      padding: 2rem;
+    }
+    .navbar {
+      padding: 2rem;
+    }
+  }
+  section {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    .contact-info {
+      display: none;
+    }
+    .navbar {
+      .links {
+        background: $white;
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        border-top: $border;
+        border-bottom: $border;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+        &.active {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        a {
+          display: block;
+          margin: 2.5rem 2rem;
+          font-size: 2.5rem;
+          //   background: $blue;
+        }
+      }
+
+      #menu-btn {
+        display: inline-block;
+
+        &.fa-times {
+          transform: rotate(180deg);
+          //   transition: all 0.3s ease;
+        }
+      }
+    }
+  }
+  .fun-fact {
+    padding: 5rem 2rem;
+    .box {
+      flex-flow: column;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+
+  .home .content h3 {
+    font-size: 3rem;
+  }
+  .contact .row form .inputBox input {
+    width: 100%;
+  }
+}
